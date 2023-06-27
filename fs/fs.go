@@ -49,6 +49,10 @@ func LoadFs(access *confpar.Access, logger log.Logger) (afero.Fs, error) {
 		fs, err = nil, &UnsupportedFsError{Type: access.Fs}
 	}
 
+	if err == nil && access.BasePath != "" {
+		fs = afero.NewBasePathFs(fs, access.BasePath)
+	}
+
 	if err == nil && access.ReadOnly {
 		fs = afero.NewReadOnlyFs(fs)
 	}

@@ -92,3 +92,26 @@ This creates a temporary local folder that will be replicated to a destination f
    ]
 }
 ``` 
+
+## Base Path
+This wraps the underlying FS so that all calls to it are prefixed with this base path.
+
+```json
+{
+  "version": 1,
+  "accesses": [
+    {
+      "base_path": "subdirectory/", // All calls to the FTP server will be made with "subdirectory/[path]"
+      // The usual FS config:
+      "user": "test",
+      "pass": "test",
+      "fs": "sftp",
+      "params": {
+        "user": "user",
+        "password": "password",
+        "hostname": "ftp.server"
+      }
+    }
+  ]
+}
+```

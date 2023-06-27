@@ -11,6 +11,7 @@ type Access struct {
 	ReadOnly      bool              `json:"read_only"`       // Read-only access
 	Shared        bool              `json:"shared"`          // Shared FS instance
 	SyncAndDelete *SyncAndDelete    `json:"sync_and_delete"` // Local empty directory and synchronization
+	BasePath      string            `json:"base_path"`       // Mount base path on target FS
 }
 
 // SyncAndDelete provides
